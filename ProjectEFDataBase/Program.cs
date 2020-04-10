@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 using ProjectEFDataBase.EF;
 using static System.Console;
 
@@ -14,7 +13,8 @@ namespace ProjectEFDataBase
         static void Main(string[] args)
         {
             WriteLine("*****Fun with ADO.NET EF * ****\n");
-            PrintAllInventory();
+            //PrintAllInventory();
+            Queries();
             ReadLine();
         }
 
@@ -86,18 +86,57 @@ namespace ProjectEFDataBase
             using (var context = new AutoLotEntities())
             {
                 // Получить проекцию новых данных
-                var colorsMakes = from item in context.Cars select new {item.Color, item.Make};
+                var colorsMakes = from item in context.Cars
+                    select new {item.Color, item.Make};
                 foreach (var item in colorsMakes)
                 {
                     WriteLine(item);
                 }
+
                 // Получить только элементы, в которых Color == "Black".
-                var blackCars = from item in context.Cars where item.Color == "Black"
+                var blackCars = from item in context.Cars
+                    where item.Color == "Black"
                     select item;
                 foreach (var item in blackCars)
                 {
                     WriteLine(item);
                 }
+            }
+        }
+
+        private static void IncludeQueries()
+        {
+            using (var context = new AutoLotEntities())
+            {
+                foreach (Car c in context.Cars.Include(c => c.Orders))
+                {
+                    foreach (Order o in c.Orders)
+                    {
+                        WriteLine(o.Orderld);
+                    }
+                }
+            }
+        }
+
+        private static void RemoveRecord(int carld)
+        {
+            // Найти запись об автомобиле, подлежащую удалению, по первичному ключу,
+            using (var context = new AutoLotEntities())
+            {
+                // Проверить наличие записи.
+                Car carToDelete = context.Cars.Find(carld);
+                if (carToDelete != null)
+                {
+                    context.Cars.Remove(carToDelete);
+                    // Этот код предназначен чисто для демонстрации того,
+                    // что состояние сущности изменилось на Deleted,
+                    if (context.Entry(carToDelete).State != EntityState.Deleted)
+                    {
+                        throw new Exception("Unable to delete the record");
+                    }
+                }
+
+                context.SaveChanges();
             }
         }
     }
