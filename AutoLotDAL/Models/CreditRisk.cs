@@ -1,11 +1,7 @@
-namespace ProjectEFDataBase.EF
-{
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
+using System.ComponentModel.DataAnnotations;
 
+namespace AutoLotDAL.Models
+{
     public partial class CreditRisk
     {
         [Key]

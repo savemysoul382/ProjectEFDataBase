@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.29920.165
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectEFDataBase", "ProjectEFDataBase.csproj", "{5303AACB-BB92-4EEB-9509-82AFCE4506CC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoLotDAL", "..\AutoLotDAL\AutoLotDAL.csproj", "{8E22A247-CAE2-40D8-8D5C-8BC0CAB43FC2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoLotTestDrive", "..\AutoLotTestDrive\AutoLotTestDrive.csproj", "{882AE5C6-6A54-44AE-8BF8-E09393C6C6B9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{5303AACB-BB92-4EEB-9509-82AFCE4506CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5303AACB-BB92-4EEB-9509-82AFCE4506CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5303AACB-BB92-4EEB-9509-82AFCE4506CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E22A247-CAE2-40D8-8D5C-8BC0CAB43FC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E22A247-CAE2-40D8-8D5C-8BC0CAB43FC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E22A247-CAE2-40D8-8D5C-8BC0CAB43FC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E22A247-CAE2-40D8-8D5C-8BC0CAB43FC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{882AE5C6-6A54-44AE-8BF8-E09393C6C6B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{882AE5C6-6A54-44AE-8BF8-E09393C6C6B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{882AE5C6-6A54-44AE-8BF8-E09393C6C6B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{882AE5C6-6A54-44AE-8BF8-E09393C6C6B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

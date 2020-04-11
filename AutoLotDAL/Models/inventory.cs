@@ -1,18 +1,16 @@
-namespace ProjectEFDataBase.EF
-{
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
+namespace AutoLotDAL.Models
+{
     [Table("inventory")]
-    public partial class Car
+    public partial class inventory
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Car()
+        public inventory()
         {
-            Orders = new HashSet<Order>();
+            
         }
 
         [Key]
@@ -25,9 +23,9 @@ namespace ProjectEFDataBase.EF
         public string Color { get; set; }
 
         [StringLength(50), Column("PetName")]
-        public string CarNickName { get; set; }
+        public string PetName { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Orders { get; set; }
+        public virtual ICollection<Order> Orders { get; set; } = new HashSet<Order>();
     }
 }
