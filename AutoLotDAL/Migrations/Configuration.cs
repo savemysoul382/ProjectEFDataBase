@@ -1,14 +1,29 @@
-﻿using System.Collections.Generic;
-using System.Data.Entity;
-using System.Data.Entity.Migrations;
+using System.Collections.Generic;
 using AutoLotDAL.Models;
 
-namespace AutoLotDAL.EF
+namespace AutoLotDAL.Migrations
 {
-    public class MyDataInitializer : DropCreateDatabaseAlways<AutoLotEntities>
+    using System;
+    using System.Data.Entity;
+    using System.Data.Entity.Migrations;
+    using System.Linq;
+
+    internal sealed class Configuration : DbMigrationsConfiguration<AutoLotDAL.EF.AutoLotEntities>
     {
-        protected override void Seed(AutoLotEntities context)
+        public Configuration()
         {
+            AutomaticMigrationsEnabled = false;
+            ContextKey = "AutoLotDAL.EF.AutoLotEntities";
+        }
+
+        protected override void Seed(AutoLotDAL.EF.AutoLotEntities context)
+        {
+            //  This method will be called after migrating to the latest version.
+
+            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
+            //  to avoid creating duplicate seed data.
+
+
             var customers = new List<Customer>
             {
                 new Customer {FirstName = "Dave", LastName = "Brenner"},

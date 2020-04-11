@@ -11,7 +11,7 @@ namespace AutoLotDAL.Models
         // предоставить стандартное имя **No Name**.
         public override String ToString()
         {
-            return $"{this.PetName ?? "**No Name**"} is a {this.Color} {this.Make} with ID {this.CarId}.";
+            return $"{this.PetName ?? "**No Name**"} is a {this.Color} {this.Make} with ID {this.Id}.";
         }
     }
 }
